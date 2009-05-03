@@ -10,4 +10,4 @@ divs n = nub $ n : 1 : concat [ [x, n `div` x] | x <- [2..root],
     where
       root = (round . sqrt . encodeFloat n) 0
 
-main = print $ head $ filter ((>500) . length . divs) $ tri
+main = print $ find ((>500) . length . divs) $ tri
