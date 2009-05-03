@@ -1,3 +1,5 @@
+-- TODO: Slow (~ 20 sec)
+
 primes = 2 : filter ((==1) . length . primeFactors) [3,5..]
 
 primeFactors n = factors n primes
