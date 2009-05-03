@@ -1,13 +1,16 @@
 import Data.List
 
--- TODO: Slow (~30 sec.)
+primes = 2 : filter ((==1) . length . primeFactors) [3,5..]
+
+primeFactors n = factors n primes
+    where factors n (p:ps)
+              | p * p > n      = [n]
+              | n `mod` p == 0 = p : factors (n `div` p) (p:ps)
+              | otherwise      = factors n ps
+
+-- http://mathschallenge.net/index.php?section=faq&ref=number/number_of_divisors
+numDivs n = product $ map (+1) $ map length $ group $ primeFactors n
 
 tri = 1 : zipWith (+) [2..] tri
 
--- From problem 21.
-divs n = nub $ n : 1 : concat [ [x, n `div` x] | x <- [2..root], 
-                                                      n `mod` x == 0 ]
-    where
-      root = (round . sqrt . encodeFloat n) 0
-
-main = print $ find ((>500) . length . divs) $ tri
+main = print $ find ((>500) . numDivs) tri
