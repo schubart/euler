@@ -6,4 +6,5 @@ primeFactors n = factors n primes
               | n `mod` p == 0 = p : factors (n `div` p) (p:ps)
               | otherwise      = factors n ps
 
-main = print $ primes !! 1000
+-- Indices start from 0 -> 10001st number is at index 10000.
+main = print $ primes !! 10000
