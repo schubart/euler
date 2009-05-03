@@ -2,10 +2,10 @@ isLeapYear year = year `mod` 4 == 0 &&
                 year `mod` 100 /= 0 || year `mod` 400 == 0
 
 isMonthEnd [year, month, day]
-    | month == 2 && not (isLeapYear year)  = day == 28
-    | month == 2 && isLeapYear year        = day == 29
-    | month `elem` [1, 3, 5, 7, 8, 10, 12] = day == 31
-    | otherwise                            = day == 30
+    | month == 2 && not (isLeapYear year) = day == 28
+    | month == 2 && isLeapYear year       = day == 29
+    | month `elem` [4, 6, 9, 11]          = day == 30
+    | otherwise                           = day == 31
 
 isYearEnd date@[_, month, _] = month == 12 && isMonthEnd date
 
