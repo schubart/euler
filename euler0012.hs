@@ -1,5 +1,7 @@
 import Data.List
 
+-- TODO: Slow (~30 sec.)
+
 tri = 1 : zipWith (+) [2..] tri
 
 -- From problem 21.
