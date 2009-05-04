@@ -2,7 +2,7 @@ import Data.List
 
 -- Calculation of divisors based on achiles' code (10/15/2007), but fixes
 -- case of perfect squares (why does his code provide the right solution
--- in spit of this issue?)
+-- in spite of this issue?)
 
 -- When we find one divisor, we automatically find a second divisor.
 -- Example: 3 divides 12, 12 div 3 is 4 -> 4 divides 12.
