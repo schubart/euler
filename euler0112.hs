@@ -10,5 +10,5 @@ density xs = scanl aggregate (0, 0) xs
                                then (a + 1, b + 1)
                                else (a,     b + 1)
 
-# TODO prettier, use Ratio type?
+-- TODO prettier, use Ratio type?
 main = print $ find (\(a, b) -> a * 100 >= b * 99) $ tail $ density $ map (isBouncy . show) [1..]
